@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<body style="background:rgb(230,190,190);display:flex;justify-content:center;">
+<div class="box" style="width:80vw; height:20vh;">
+<h2 class="title is-2">ARE YOU SURE ABOUT THAT? <span style="color:rgb(120,170,230);">@John Cena</span></h2>
+<p>{{task.title}}</p>
+<p>Was it done: {{task.status}}</p>
+<p>{{task.created_date}}</p>
+    <div><a href="{% url 'home' %}">Cancel, go back.</a></div>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" name="confirm" value="DELETE GOO!" class="input">
+</form>
+     </div>
+</body>

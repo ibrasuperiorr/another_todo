@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO APP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body style="background:rgb(240, 200,200);">
+<div class="column">
+<h1 class="title is-4">TODO</h1>
+
+<form method="POST" class="field" action="/">
+    {% csrf_token %}
+    {{form.title}}
+    <input type="submit" name="Create Task" class="">
+</form>
+<br>
+
+<h2 class="title is-5">TASKS</h2>
+{% for task in tasks %}
+<div class="box">
+    {% if task.status %}
+    <strike class="title is-4">{{task}}</strike>
+    <p>{{task.created_date}}</p>
+    <br>
+    {% else %}
+    <h2 class="title is-4">{{task.title}}</h2>
+    <p>{{task.created_date}}</p>
+    {% endif %}
+    <a href="{% url 'update_task' task.id%}?">Update</a>
+    <a href="{% url 'delete_task' task.id %}">Delete</a>
+
+
+</div>
+{% endfor %}
+</div>
+</body>
+</html>

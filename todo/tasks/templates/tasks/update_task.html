@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+<h3 class="title">Update Task</h3>
+
+<form method="POST" action="">
+  {% csrf_token%}
+  {{form}}
+  <input type="submit" name="Update Task">
+</form>
